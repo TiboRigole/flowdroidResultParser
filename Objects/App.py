@@ -29,3 +29,6 @@ class App:
 
     def getNumOfLeaks(self):
         return self.num_of_leaks
+
+    def getLeaks(self):
+        return self.leaks
