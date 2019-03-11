@@ -2,7 +2,7 @@ class Category:
 
     def __init__(self, line):
 
-        lineSplitted = line[12:].split(" - ")
+        lineSplitted = line[12:-1].split(" - ")
 
         self.mainTag = lineSplitted[0]
 

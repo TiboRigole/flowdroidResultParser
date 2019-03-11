@@ -22,7 +22,7 @@ xmlDirectory = directory = "/home/tibo/Documents/appsFromGetJar/outputs/"
 sinks_Cat_Dict = setupFromTxt(sinksCatFile, "SINKS")
 sources_Cat_Dict = setupFromTxt(sourcesCatFile, "SOURCES")
 
-# initialize 1 dimensional array that whill contain all anlaly
+# initialize 1 dimensional array that whill contain all analysed apps
 apps = []
 
 # read the output_xml from every app - analyse it
