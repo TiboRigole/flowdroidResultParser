@@ -1,0 +1,109 @@
+//leave blank on purpose
+@categorie: database - ophalen van info
+<android.database.Cursor: java.lang.String getString(int)> -> _SOURCE_
+<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)> -> _SOURCE_
+<android.database.sqlite.SQLiteDatabase: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)> -> _SOURCE_
+
+@categorie: databse - opslaan van info
+<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)> -> _SOURCE_
+<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)> -> _SOURCE_
+
+@categorie: instellingen ophalen
+<android.content.SharedPreferences: android.content.SharedPreferences getDefaultSharedPreferences(android.content.Context)> -> _SOURCE_
+
+@categorie: adressen opvragen - bluetooth adres opvragen
+<android.bluetooth.BluetoothAdapter: java.lang.String getAddress()> -> _SOURCE_
+
+@categorie: adressen opvragen - wifi adres opvragen
+<android.net.wifi.WifiInfo: java.lang.String getMacAddress()> -> _SOURCE_
+
+@categorie: adressen opvragen - wifi acces point opvragen
+<android.net.wifi.WifiInfo: java.lang.String getSSID()> -> _SOURCE_
+
+@categorie: surfgedrag opvragen
+<android.provider.Browser: android.database.Cursor getAllBookmarks()> -> _SOURCE_
+<android.provider.Browser: android.database.Cursor getAllVisitedUrls()> -> _SOURCE_
+
+@categorie: locaties - land opvragen
+<java.util.Locale: java.lang.String getCountry()> -> _SOURCE_
+
+@categorie: locaties - gsm cell id
+@categorie: simkaart info 
+<android.telephony.gsm.GsmCellLocation: int getCid()> -> _SOURCE_
+
+@categorie: locaties - gsm location area code
+@categorie: simkaart info 
+<android.telephony.gsm.GsmCellLocation: int getLac()> -> _SOURCE_
+
+% geografische location
+% volgende twee zullen vaak in combinatie optreden denk ik
+@categorie: locaties
+<android.location.Location: double getLatitude()> -> _SOURCE_
+<android.location.Location: double getLongitude()> -> _SOURCE_
+<android.location.LocationManager: android.location.Location getLastKnownLocation(java.lang.String)> -> _SOURCE_
+<java.util.Calendar: java.util.TimeZone getTimeZone()> -> _SOURCE_
+
+% sim kaart oriented
+% sommigen zijn hier misschien niet zo privacy related: getLine1Number kan mss wel
+% IMEI nummer en serienummer van de simkaart is niet oké tho
+% IMEI nummer opvragen
+% IMSI nummer opvragen (in geval van een gsm, of toch proberen he)
+% serienummber van de sim kaart op vragen
+% telefoon nummer opvragen
+@categorie: simkaart info
+<android.telephony.TelephonyManager: java.lang.String getDeviceId()> android.permission.READ_PHONE_STATE -> _SOURCE_
+<android.telephony.TelephonyManager: java.lang.String getSubscriberId()> android.permission.READ_PHONE_STATE -> _SOURCE_
+<android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()> android.permission.READ_PHONE_STATE -> _SOURCE_
+<android.telephony.TelephonyManager: java.lang.String getLine1Number()> android.permission.READ_PHONE_STATE -> _SOURCE_
+
+% wat met 2 categoriën?
+@categorie: systemwide informatie verzamelen
+@categorie: accounts - persoonlijk
+<android.accounts.AccountManager: android.accounts.Account[] getAccounts()> -> _SOURCE_
+
+@categorie: opname maken - audio opnamen
+<android.media.AudioRecord: int read(short[],int,int)> -> _SOURCE_
+<android.media.AudioRecord: int read(byte[],int,int)> -> _SOURCE_
+<android.media.AudioRecord: int read(java.nio.ByteBuffer,int)> -> _SOURCE_
+
+% video opnemen, de camera gebruiken dus
+% kvind het wel raar dat video opnemen sink is, en audio recorden source is
+% 3) starten met het opnemen van de video
+@categorie: opname maken - video
+<android.media.MediaRecorder: void setVideoSource(int)> -> _SINK_
+<android.media.MediaRecorder: void setPreviewDisplay(android.view.Surface)> -> _SINK_
+<android.media.MediaRecorder: void start()> -> _SINK_
+
+% spreken voor zich
+@categorie: systemwide info verzamelen - welke apps zijn geinstalleerd
+<android.content.pm.PackageManager: java.util.List getInstalledApplications(int)> -> _SOURCE_
+<android.content.pm.PackageManager: java.util.List getInstalledPackages(int)> -> _SOURCE_
+
+% opvragen van alle ... die een bepaalde intent kunnen behandelen / verwerken
+% deze lijken me ook wel raar , kan een false positive opgeven?
+% dit moet natuurlijk wel lokaal blijven, mag nie verstuurd worden in een variabele naar de buitenwereld!
+@categorie: systemwide info verzamelen - welke services zijn levend
+<android.content.pm.PackageManager: java.util.List queryIntentActivities(android.content.Intent,int)> -> _SOURCE_
+<android.content.pm.PackageManager: java.util.List queryIntentServices(android.content.Intent,int)> -> _SOURCE_
+<android.content.pm.PackageManager: java.util.List queryBroadcastReceivers(android.content.Intent,int)> -> _SOURCE_
+<android.content.pm.PackageManager: java.util.List queryContentProviders(java.lang.String,int,int)> -> _SOURCE_
+
+% inhoud gaan bekijken van het pakketje
+@categorie: surfgedrag - ???
+<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()> -> _SOURCE_
+
+% zelfde als hierboven: urlconnectie openen
+% der staat hier wel both , maar ksnap enkel de sink er van eignlijk
+@categorie: surfgedrag - ???
+<java.net.URL: java.io.InputStream openStream()> -> _BOTH_
+<java.net.URL: java.lang.Object getContent()> -> _BOTH_
+<java.net.URL: java.lang.Object getContent(java.lang.Class[])> -> _BOTH_
+<java.net.URLConnection: java.io.InputStream getInputStream()> -> _BOTH_
+
+@categorie: surfgedrag - ???
+<org.apache.http.HttpResponse: org.apache.http.HttpEntity getEntity()> -> _SOURCE_
+<org.apache.http.util.EntityUtils: java.lang.String toString(org.apache.http.HttpEntity)> -> _SOURCE_
+<org.apache.http.HttpResponse: org.apache.http.StatusLine getStatusLine()> -> _SOURCE_
+
+@categorie: findViewbyId - ???
+<android.app.Activity: android.view.View findViewById(int)> -> _SOURCE_
