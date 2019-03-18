@@ -16,8 +16,8 @@ sourcesandsinks = "/home/tibo/flowdroid/sourcesandsinks.txt"
 
 # dit is de folder die alle apks bevat
 # directory = "/home/tibo/Documents/appsFromGetJar"
-# directory = "/home/tibo/Documents/appsFromFDroid"
-directory = "/home/tibo/Documents/appsFromNothing"
+directory = "/home/tibo/Documents/appsFromSlideMe"
+# directory = "/home/tibo/Documents/appsFromNothing"
 
 # verhinder dat filenamen spaties bevatten!
 # verhinder dat filenamen '(' en ')' bevatten!

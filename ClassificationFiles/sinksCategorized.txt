@@ -2,7 +2,7 @@
 % 1) connectie leggen tot een bepaalde URL
 % 2) 'commando' ingeven aan de service
 % 3) SINK : iets doorsturen naar de service
-@categorie: via URL naar buiten
+@categorie: internet - via URL iets downloaden
 <java.net.URLConnection: void connect()> -> _SINK_
 <java.net.URLConnection: java.io.InputStream getInputStream()> -> _BOTH_
 <java.net.URLConnection: java.io.OutputStream getOutputStream()> -> _SINK_
@@ -18,7 +18,8 @@
 % misschien is er hier ook wel een echte case voor
 % als je bundle gebruit om van activity a -> b te gaan, en je bvb je gsmNummer wil meegeven?
 % vraag eens na
-@categorie: doorgegeven in bundle naar andere activity 
+% waarschijnlijk zijn dit sinks, louter om de brug te maken naar een ander leven deel in een app
+@categorie: bundles - info doorgeven
 <android.os.Bundle: void putBinder(java.lang.String,android.os.IBinder)> -> _SINK_
 <android.os.Bundle: void putBoolean(java.lang.String,boolean)> -> _SINK_
 <android.os.Bundle: void putBooleanArray(java.lang.String,boolean[])> -> _SINK_
@@ -54,7 +55,7 @@
 % info schrijven naar (logging) files
 % gevoelige info mag ook nooit gelogd worden, je mag niet je gsm nummer loggen
 % omdat log files worden eventueel verstuurd bij een crash van een bepaalde app
-@categorie: naar lokale files
+@categorie: loggen en wegschrijven naar lokale files
 <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 <android.util.Log: int d(java.lang.String,java.lang.String,java.lang.Throwable)> -> _SINK_
 <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
@@ -113,18 +114,19 @@
 <android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)> -> _SINK_
 
 % ?
+@categorie: ???
 <android.content.IntentFilter: void addAction(java.lang.String)> -> _SINK_
 
 % categorie: smsje sturen
 % sms je opstellen en versturen
-@categorie: sms
+@categorie: sms versturen
 <android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)> android.permission.SEND_SMS -> _SINK_ 
 <android.telephony.SmsManager: void sendDataMessage(java.lang.String,java.lang.String,short,byte[],android.app.PendingIntent,android.app.PendingIntent)> android.permission.SEND_SMS -> _SINK_ 
 <android.telephony.SmsManager: void sendMultipartTextMessage(java.lang.String,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList)> android.permission.SEND_SMS -> _SINK_ 
 
 @categorie: via internet verstuurd
 % connecteren naar een bepaald endpoint op het internet
-@categorie: via internet
+@categorie: internet
 <java.net.Socket: void connect(java.net.SocketAddress)> -> _SINK_
 
 % ergens terechtgekomen in OS.
@@ -141,14 +143,13 @@
 <android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)> -> _SINK_
 
 % verstuur gevoelige informatie over internet
-@categorie: via internet
-@categorie: via internet
+@categorie: internet - executen
 <org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
 <org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
 
 
 % ?
-@categorie: lokaal doorgeven / via activities
+@categorie: lokaal doorgeven / via activities / opstarten
 <android.content.Context: void startActivities(android.content.Intent[])> -> _SINK_
 <android.content.Context: void startActivities(android.content.Intent[],android.os.Bundle)> -> _SINK_
 <android.content.Context: android.content.ComponentName startService(android.content.Intent)> -> _SINK_
@@ -156,7 +157,8 @@
 <android.content.Context: void sendBroadcast(android.content.Intent)> -> _SINK_
 <android.content.Context: void sendBroadcast(android.content.Intent,java.lang.String)> -> _SINK_
 
-
+% ???
+@categorie: nog niet bepaald
 <android.app.Activity: void setResult(int,android.content.Intent)> -> _SINK_
 
 @categorie: via activities
@@ -184,11 +186,18 @@
 <android.app.Activity: void sendStickyOrderedBroadcast(android.content.Intent,android.content.BroadcastReceiver,android.os.Handler,int,java.lang.String,android.os.Bundle)> -> _SINK_
 <android.app.Activity: void sendStickyOrderedBroadcastAsUser(android.content.Intent,android.os.UserHandle,android.content.BroadcastReceiver,android.os.Handler,int,java.lang.String,android.os.Bundle)> -> _SINK_
 
-@categorie: via contentresolver
+@categorie: database
 <android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues)> -> _SINK_
 <android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[])> -> _SINK_
 <android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])> -> _SINK_
 <android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)> -> _SINK_
 <android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)> -> _SINK_
 
+@categorie: ??????
 <java.lang.ProcessBuilder: java.lang.Process start()> -> _SINK_
+
+@categorie: naar internet
+<java.net.URL: java.io.InputStream openStream()> -> _BOTH_
+<java.net.URL: java.lang.Object getContent()> -> _BOTH_
+<java.net.URL: java.lang.Object getContent(java.lang.Class[])> -> _BOTH_
+<java.net.URLConnection: java.io.InputStream getInputStream()> -> _BOTH_

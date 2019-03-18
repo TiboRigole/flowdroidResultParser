@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="075e583b-cfda-45c5-9f84-256bbe90f7c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/CollectResults.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CollectResults.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/ParseAPKs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/ParseAPKs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,8 +14,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FlowDroidVerwerking$CollectResults.coverage" NAME="CollectResults Coverage Results" MODIFIED="1552333672920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/FlowDroidVerwerking$ParseAPKs.coverage" NAME="ParseAPKs Coverage Results" MODIFIED="1552139219865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/FlowDroidVerwerking$CollectResults.coverage" NAME="CollectResults Coverage Results" MODIFIED="1552396612540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/FlowDroidVerwerking$ParseAPKs.coverage" NAME="ParseAPKs Coverage Results" MODIFIED="1552743399140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/FlowDroidVerwerking$test.coverage" NAME="test Coverage Results" MODIFIED="1552322031691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
   </component>
   <component name="FileEditorManager">
@@ -21,23 +23,65 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/CollectResults.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="323">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Util/ReadClassificationFiles.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
               <folding>
-                <element signature="e#573#629#0" />
-                <element signature="e#781#856#0" />
-                <element signature="e#1225#1410#0" />
-                <element signature="e#1412#1471#0" />
+                <element signature="e#1#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Objects/Category.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graphs/NumAccToCategory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="527">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/ParseAPKs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="62" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="195" column="18" selection-start-line="195" selection-start-column="18" selection-end-line="195" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="112" column="35" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -45,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Objects/Leak.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="102">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -72,6 +116,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>_BOTH_</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -82,8 +131,6 @@
         <option value="$PROJECT_DIR$/Util/Fromatting.py" />
         <option value="$PROJECT_DIR$/Util/Formatting.py" />
         <option value="$PROJECT_DIR$/Util/ReadClassificationFiles.py" />
-        <option value="$PROJECT_DIR$/Objects/Category.py" />
-        <option value="$PROJECT_DIR$/Scripts/ParseAPKs.py" />
         <option value="$PROJECT_DIR$/Objects/Sink.py" />
         <option value="$PROJECT_DIR$/Objects/Source.py" />
         <option value="$PROJECT_DIR$/Graphs/Pie_NumOfLeaks.py" />
@@ -93,6 +140,10 @@
         <option value="$PROJECT_DIR$/Objects/Leak.py" />
         <option value="$PROJECT_DIR$/Scripts/CollectResults.py" />
         <option value="$PROJECT_DIR$/Graphs/NumAccToCategory.py" />
+        <option value="$PROJECT_DIR$/Objects/Category.py" />
+        <option value="$PROJECT_DIR$/Scripts/ParseAPKs.py" />
+        <option value="$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt" />
+        <option value="$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt" />
       </list>
     </option>
   </component>
@@ -108,13 +159,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="FlowDroidVerwerking" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlowDroidVerwerking" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlowDroidVerwerking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlowDroidVerwerking" type="462c0819:PsiDirectoryNode" />
+              <item name="ClassificationFiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FlowDroidVerwerking" type="b2602c69:ProjectViewProjectNode" />
@@ -135,11 +190,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Scripts/ParseAPKs.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -156,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CollectResults">
+  <component name="RunManager" selected="Python.ParseAPKs">
     <configuration name="CollectResults" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FlowDroidVerwerking" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,9 +303,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ParseAPKs" />
         <item itemvalue="Python.CollectResults" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.ParseAPKs" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +322,12 @@
       <workItem from="1552125129689" duration="10991000" />
       <workItem from="1552317526750" duration="4966000" />
       <workItem from="1552325344208" duration="4980000" />
-      <workItem from="1552330568959" duration="855000" />
+      <workItem from="1552330568959" duration="1024000" />
+      <workItem from="1552395957621" duration="720000" />
+      <workItem from="1552467003208" duration="51000" />
+      <workItem from="1552743368612" duration="546000" />
+      <workItem from="1552743976022" duration="18000" />
+      <workItem from="1552910347141" duration="1503000" />
     </task>
     <task id="LOCAL-00001" summary="piecharts for categories of sources and sinks are OK">
       <created>1552330296473</created>
@@ -275,22 +336,30 @@
       <option name="project" value="LOCAL" />
       <updated>1552330296473</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix voor category input">
+      <created>1552333694516</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552333694516</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21792000" />
+    <option name="totallyTimeSpent" value="24799000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-2" width="1680" height="1052" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17380661" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18359853" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2535211" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.23510292" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.71038824" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29252437" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -312,7 +381,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="piecharts for categories of sources and sinks are OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="piecharts for categories of sources and sinks are OK" />
+    <MESSAGE value="fix voor category input" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix voor category input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -358,19 +428,6 @@
     <entry file="file://$PROJECT_DIR$/Util/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/ParseAPKs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Objects/Source.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -408,13 +465,6 @@
     <entry file="file://$PROJECT_DIR$/Util/Formatting.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Objects/Category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/plotly/plotly/plotly.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -432,20 +482,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/CollectResults.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Util/ReadClassificationFiles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="459">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
           <folding>
             <element signature="e#1#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Objects/Category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphs/NumAccToCategory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Objects/Leak.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="102">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -459,23 +530,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/CollectResults.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/ParseAPKs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#573#629#0" />
-            <element signature="e#781#856#0" />
-            <element signature="e#1225#1410#0" />
-            <element signature="e#1412#1471#0" />
-          </folding>
+        <state relative-caret-position="546">
+          <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="62" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Graphs/NumAccToCategory.py">
+    <entry file="file://$PROJECT_DIR$/ClassificationFiles/sourcesCategorized.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="696">
+          <caret line="112" column="35" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClassificationFiles/sinksCategorized.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="195" column="18" selection-start-line="195" selection-start-column="18" selection-end-line="195" selection-end-column="18" />
         </state>
       </provider>
     </entry>
