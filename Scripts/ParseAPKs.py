@@ -1,12 +1,14 @@
-#!/bin/bash
+# haalt alle apks door flowdroid en zet de outputfile in de overeenkomstige outputs map
 # terminal commandos uitvoeren
 import subprocess
-
+import sys
 # alle files in directory kunnen overlopen
 import os
 
 # xml files behandelen (deprecated?)
 import xml.etree.ElementTree as ET
+
+
 
 # commando's opstellen
 # locations
@@ -16,8 +18,13 @@ sourcesandsinks = "/home/tibo/flowdroid/sourcesandsinks.txt"
 
 # dit is de folder die alle apks bevat
 # directory = "/home/tibo/Documents/appsFromGetJar"
-directory = "/home/tibo/Documents/appsFromSlideMe"
+# directory = "/home/tibo/Documents/appsFromSlideMe"
 # directory = "/home/tibo/Documents/appsFromNothing"
+directory = "/home/tibo/Documents/appsFromFDroid"
+
+# if you want to keep the console printing
+# sys.stdout = open(directory+'/logging','w')
+
 
 # verhinder dat filenamen spaties bevatten!
 # verhinder dat filenamen '(' en ')' bevatten!
@@ -37,7 +44,6 @@ print(" ")
 outputsPath = directory+"/outputs"
 if( not os.path.exists(outputsPath) ):
     os.mkdir(outputsPath)
-
 # bijhouden hoeveel apps we geanalyseerd hebben
 num_analysed_apps = 0
 
@@ -75,3 +81,5 @@ for filename in os.listdir(directory):
 
 print("done")
 print("analysed", num_analysed_apps , "apps!")
+
+# todo: fix iets dat de logger ook opslaat ,zodat ik kan nagaan wat er gebeurt!
