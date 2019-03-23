@@ -36,6 +36,7 @@
 @categorie: simkaart info 
 <android.telephony.gsm.GsmCellLocation: int getLac()> -> _SOURCE_
 
+
 @categorie: locaties
 <android.location.Location: double getLatitude()> -> _SOURCE_
 <android.location.Location: double getLongitude()> -> _SOURCE_
