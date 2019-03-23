@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 
 def pieCategoriesSinks(apps):
 
-    # important!!!
+    # important!
     # one app can only add 1 towards the amount of leaks from that category
     # so if one app has 3 leaks with the same sink, it still only counts as 1 for that category
     # job no. 1 is to extract all unique sinks (and their categories)

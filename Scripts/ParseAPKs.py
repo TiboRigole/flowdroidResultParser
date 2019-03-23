@@ -64,7 +64,6 @@ for filename in os.listdir(directory):
 
     commandoList = [cmdmakeOutputFile, cmdChangePermissionsOutputFile, cmdAnalyseApp]
 
-
     #outputs map moeten we skippen => alle mappen gewoon skippen
     path = os.path.join(directory, filename)
     if( not os.path.isdir(path) ):

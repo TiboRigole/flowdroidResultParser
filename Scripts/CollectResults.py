@@ -1,4 +1,4 @@
-
+# make the graphs
 # alle files in directory kunnen overlopen
 import os
 
@@ -7,6 +7,7 @@ from Objects.App import App
 from Util.ReadClassificationFiles import setupFromTxt
 from Graphs.NumOfLeaks import pieNumOfLeaks, histogramNumOfLeaks
 from Graphs.NumAccToCategory import pieCategoriesSinks, pieCategoriesSources
+from Graphs.NumSourcesSinks import countSinks, countSources
 
 # paths to categorisation of sources and sinks files
 sinksCatFile   = "/home/tibo/PycharmProjects/FlowDroidVerwerking/ClassificationFiles/sinksCategorized.txt"
@@ -14,8 +15,8 @@ sourcesCatFile = "/home/tibo/PycharmProjects/FlowDroidVerwerking/ClassificationF
 
 # path to directory where the analysed xml's are located
 # xmlDirectory = directory = "/home/tibo/Documents/appsFromNothing/outputs/"
-xmlDirectory = directory = "/home/tibo/Documents/appsFromGetJar/outputs/"
-# xmlDirectory = directory = "/home/tibo/Documents/appsFromFDroid/outputs/"
+# xmlDirectory = directory = "/home/tibo/Documents/appsFromGetJar/outputs/"
+xmlDirectory = directory = "/home/tibo/Documents/appsFromFDroid/outputs/"
 
 
 # read the files and put them in dictonary : sink -> category and source -> category
@@ -27,7 +28,8 @@ apps = []
 
 # read the output_xml from every app - analyse it
 for filename in os.listdir(directory):
-
+    print(" ")
+    print(filename)
     FDOutput = xmlDirectory + filename
     deze_app = App(FDOutput)
     deze_app.setCategories(sinks_Cat_Dict, sources_Cat_Dict)
@@ -40,5 +42,7 @@ for filename in os.listdir(directory):
 # histogramNumOfLeaks(apps)
 # pieCategoriesSinks(apps)
 pieCategoriesSources(apps)
+# countSinks(apps, sinks_Cat_Dict)
+# countSources(apps, sources_Cat_Dict)
 
 print("donezo")

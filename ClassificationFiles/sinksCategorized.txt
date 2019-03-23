@@ -2,7 +2,7 @@
 % 1) connectie leggen tot een bepaalde URL
 % 2) 'commando' ingeven aan de service
 % 3) SINK : iets doorsturen naar de service
-@categorie: internet - via URL iets downloaden
+@categorie: netwerk - via http/https
 <java.net.URLConnection: void connect()> -> _SINK_
 <java.net.URLConnection: java.io.InputStream getInputStream()> -> _BOTH_
 <java.net.URLConnection: java.io.OutputStream getOutputStream()> -> _SINK_
@@ -19,7 +19,9 @@
 % als je bundle gebruit om van activity a -> b te gaan, en je bvb je gsmNummer wil meegeven?
 % vraag eens na
 % waarschijnlijk zijn dit sinks, louter om de brug te maken naar een ander leven deel in een app
-@categorie: bundles - info doorgeven
+% persistence werkt met bundles, maar de meeste zullen niet via dit werken
+% in een intent kan een bundle gestopt worden
+@categorie: bundles
 <android.os.Bundle: void putBinder(java.lang.String,android.os.IBinder)> -> _SINK_
 <android.os.Bundle: void putBoolean(java.lang.String,boolean)> -> _SINK_
 <android.os.Bundle: void putBooleanArray(java.lang.String,boolean[])> -> _SINK_
@@ -55,7 +57,7 @@
 % info schrijven naar (logging) files
 % gevoelige info mag ook nooit gelogd worden, je mag niet je gsm nummer loggen
 % omdat log files worden eventueel verstuurd bij een crash van een bepaalde app
-@categorie: loggen en wegschrijven naar lokale files
+@categorie: loggen
 <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 <android.util.Log: int d(java.lang.String,java.lang.String,java.lang.Throwable)> -> _SINK_
 <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
@@ -70,6 +72,8 @@
 <android.util.Log: int wtf(java.lang.String,java.lang.Throwable)> -> _SINK_
 <android.util.Log: int wtf(java.lang.String,java.lang.String)> -> _SINK_
 <android.util.Log: int wtf(java.lang.String,java.lang.String,java.lang.Throwable)> -> _SINK_
+
+@categorie: wegschrijven naar lokale files
 <java.io.OutputStream: void write(byte[])> -> _SINK_
 <java.io.OutputStream: void write(byte[],int,int)> -> _SINK_
 <java.io.OutputStream: void write(int)> -> _SINK_
@@ -93,7 +97,7 @@
 
 % system wide broadcast mag geen gevoelige informatie bevatten
 % andere apps kunnen de broadcast opvangen en dan de gevoelige info die er in zit versturen
-@categorie: broadcast receivers
+@categorie: broadcast versturen
 <android.content.Context: void sendBroadcast(android.content.Intent)> -> _SINK_
 <android.content.Context: void sendBroadcast(android.content.Intent,java.lang.String)> -> _SINK_
 <android.content.Context: void sendOrderedBroadcast(android.content.Intent,java.lang.String)> -> _SINK_
@@ -109,12 +113,9 @@
 
 % informatie komt terecht in een nieuwe service die hier aangemaakt wordt
 % bvb, telefoonnummer komt terecht in een proces op de achtergrond
-@categorie: broadcast receivers
+@categorie: achtergrondcomponent opstarten
 <android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)> -> _SINK_
 <android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)> -> _SINK_
-
-% ?
-@categorie: ???
 <android.content.IntentFilter: void addAction(java.lang.String)> -> _SINK_
 
 % categorie: smsje sturen
@@ -126,16 +127,18 @@
 
 @categorie: via internet verstuurd
 % connecteren naar een bepaald endpoint op het internet
-@categorie: internet
+% met een socket kan je gelijk wel protocol gebruiken
+@categorie: netwerk - onbekend protocol
 <java.net.Socket: void connect(java.net.SocketAddress)> -> _SINK_
 
 % ergens terechtgekomen in OS.
-@categorie: ??
+@categorie: communicatie met achtergrondcomponent
 <android.os.Handler: boolean sendMessage(android.os.Message)> -> _SINK_
 
 % categorie: instellingen wijzigen
 % waarden in instellingen wijzigen
-@categorie: sharedPreferences
+% persistence
+@categorie: lokale persistentie
 <android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)> -> _SINK_
 <android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putFloat(java.lang.String,float)> -> _SINK_
 <android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)> -> _SINK_
@@ -143,25 +146,31 @@
 <android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)> -> _SINK_
 
 % verstuur gevoelige informatie over internet
-@categorie: internet - executen
+@categorie: netwerk - via http/https
 <org.apache.http.impl.client.DefaultHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
 <org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)> -> _SINK_
 
 
 % ?
-@categorie: lokaal doorgeven / via activities / opstarten
+@categorie: voorgrondcomponent opstarten
 <android.content.Context: void startActivities(android.content.Intent[])> -> _SINK_
 <android.content.Context: void startActivities(android.content.Intent[],android.os.Bundle)> -> _SINK_
+
+@categorie: achtergrondcompontent opstarten
 <android.content.Context: android.content.ComponentName startService(android.content.Intent)> -> _SINK_
+
+@categorie: communicatie met achtergrondcomponent
 <android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)> -> _SINK_
+
+% zelfde als alle broadcast zend methoden
+@categorie: broadcast versturen
 <android.content.Context: void sendBroadcast(android.content.Intent)> -> _SINK_
 <android.content.Context: void sendBroadcast(android.content.Intent,java.lang.String)> -> _SINK_
 
-% ???
-@categorie: nog niet bepaald
-<android.app.Activity: void setResult(int,android.content.Intent)> -> _SINK_
 
-@categorie: via activities
+% lekken naar andere android componenten
+@categorie: activity opstarten
+<android.app.Activity: void setResult(int,android.content.Intent)> -> _SINK_
 <android.app.Activity: void startActivities(android.content.Intent[])> -> _SINK_
 <android.app.Activity: void startActivities(android.content.Intent[],android.os.Bundle)> -> _SINK_
 <android.app.Activity: void startActivityForResult(android.content.Intent,int)> -> _SINK_
@@ -172,8 +181,14 @@
 <android.app.Activity: void startActivityFromFragment(android.app.Fragment,android.content.Intent,int)> -> _SINK_
 <android.app.Activity: void startActivityIfNeeded(android.content.Intent,int,android.os.Bundle)> -> _SINK_
 <android.app.Activity: void startActivityIfNeeded(android.content.Intent,int)> -> _SINK_
+
+@categorie: achtergrondcomponent opstarten
 <android.app.Activity: android.content.ComponentName startService(android.content.Intent)> -> _SINK_
+
+@categorie: communicatie met achtergrondcomponent
 <android.app.Activity: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)> -> _SINK_
+
+@categorie: broadcast versturen
 <android.app.Activity: void sendBroadcast(android.content.Intent)> -> _SINK_
 <android.app.Activity: void sendBroadcast(android.content.Intent,java.lang.String)> -> _SINK_
 <android.app.Activity: void sendBroadcastAsUser(android.content.Intent,android.os.UserHandle)> -> _SINK_
@@ -186,17 +201,20 @@
 <android.app.Activity: void sendStickyOrderedBroadcast(android.content.Intent,android.content.BroadcastReceiver,android.os.Handler,int,java.lang.String,android.os.Bundle)> -> _SINK_
 <android.app.Activity: void sendStickyOrderedBroadcastAsUser(android.content.Intent,android.os.UserHandle,android.content.BroadcastReceiver,android.os.Handler,int,java.lang.String,android.os.Bundle)> -> _SINK_
 
-@categorie: database
+% lokaal in database iets opslaan
+@categorie: lokale persistentie
 <android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues)> -> _SINK_
 <android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[])> -> _SINK_
 <android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])> -> _SINK_
 <android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)> -> _SINK_
 <android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)> -> _SINK_
 
-@categorie: ??????
+% background process wordt opgestart
+%
+@categorie: achtergrondcomponent opstarten
 <java.lang.ProcessBuilder: java.lang.Process start()> -> _SINK_
 
-@categorie: naar internet
+@categorie: internet - via http/https
 <java.net.URL: java.io.InputStream openStream()> -> _BOTH_
 <java.net.URL: java.lang.Object getContent()> -> _BOTH_
 <java.net.URL: java.lang.Object getContent(java.lang.Class[])> -> _BOTH_

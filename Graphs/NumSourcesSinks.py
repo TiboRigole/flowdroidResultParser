@@ -1,7 +1,7 @@
 import plotly.plotly as py
 import plotly.graph_objs as go
 
-def countsSources(apps, sourcesDict):
+def countSources(apps, sourcesDict):
 
     # sourcesDict contains key -> value as source -> category
     # here we only will count sources, so we need to extract these
@@ -48,13 +48,22 @@ def countSinks(apps, sinksDict):
     for key in sinksDict:
         sinkCounts[key] = 0
 
+    print("hey")
     for app in apps:
 
+        print(app.name)
         for leak in app.getLeaks():
 
-            sink = leak.getSink()
+            sink_from_app = leak.getSink()
 
-            sinkCounts[sink] += 1
+            for key in sinkCounts:
+                if(sink_from_app.equals(key)):
+                    sinkCounts[key] += 1
+
+
+
+
+
 
     sinks = []
     counts = []
@@ -64,9 +73,12 @@ def countSinks(apps, sinksDict):
         sinks.append(str(key))
         counts.append(sinkCounts[key])
 
+    for key in sinkCounts:
+        print(str(key) +": "+ str(sinkCounts[key]))
+
     print(sinks)
     print(counts)
-    print("total number of apps checked: ", 0)  # todo: fill in this!
+    print("total number of apps checked: ", len(apps))  # todo: fill in this!
 
     # setting graph labels,...
 

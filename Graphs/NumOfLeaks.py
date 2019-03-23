@@ -6,6 +6,7 @@ def pieNumOfLeaks(appsList):
     # this methode will check all apps in the list and count the number of leaks
     # wil visualise the number of leaks in a pie chart
 
+    aantal_crash = 0
     aantal_0 = 0
     aantal_1_5 = 0
     aantal_6_15 = 0
@@ -14,6 +15,9 @@ def pieNumOfLeaks(appsList):
 
     for app in appsList:
         numOfLeaks = app.getNumOfLeaks()
+
+        if (numOfLeaks == -1):
+            aantal_crash += 1
 
         if (numOfLeaks == 0):
             aantal_0 += 1
@@ -31,8 +35,8 @@ def pieNumOfLeaks(appsList):
             aantal_31_meer += 1
 
     # probleem : niet zeker als dit wel 'wetenschappelijk genoeg is'
-    labels = ['0 leaks', '1 - 5 leaks', '6 - 15 leaks', '16 - 30 leaks', '31 - ... leaks']
-    values = [ aantal_0, aantal_1_5, aantal_6_15, aantal_16_30, aantal_31_meer]
+    labels = ['crashed','0 leaks', '1 - 5 leaks', '6 - 15 leaks', '16 - 30 leaks', '31 - ... leaks']
+    values = [ aantal_crash, aantal_0, aantal_1_5, aantal_6_15, aantal_16_30, aantal_31_meer]
 
     trace = go.Pie(labels=labels, values=values)
     py.plot([trace], filename='basic_pie_chart')
@@ -43,7 +47,7 @@ def histogramNumOfLeaks(appList):
     layout = go.Layout(
         title='histogram analyse',
         xaxis=dict(
-            title='number of leaks found in app',
+            title='number of leaks found in app \n -1 = no entry points ',
             titlefont=dict(
                 family='Courier New, monospace',
                 size=18,
