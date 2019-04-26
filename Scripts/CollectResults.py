@@ -16,8 +16,9 @@ sourcesCatFile = "/home/tibo/PycharmProjects/FlowDroidVerwerking/ClassificationF
 # path to directory where the analysed xml's are located
 # xmlDirectory = directory = "/home/tibo/Documents/appsFromNothing/outputs/"
 # xmlDirectory = directory = "/home/tibo/Documents/appsFromGetJar/outputs/"
-xmlDirectory = directory = "/home/tibo/Documents/appsFromFDroid/outputs/"
-
+# xmlDirectory = directory = "/home/tibo/Documents/appsFromFDroid/outputs/"
+# xmlDirectory = directory = "/media/tibo/TIBORIGOLE/apkpureTop400/outputs"
+xmlDirectory = directory = "/media/tibo/TIBORIGOLE/tester/"
 
 # read the files and put them in dictonary : sink -> category and source -> category
 sinks_Cat_Dict = setupFromTxt(sinksCatFile, "SINKS")
@@ -30,8 +31,8 @@ apps = []
 for filename in os.listdir(directory):
     print(" ")
     print(filename)
-    FDOutput = xmlDirectory + filename
-    deze_app = App(FDOutput)
+    path_to_file = directory + filename
+    deze_app = App(filename, path_to_file)
     deze_app.setCategories(sinks_Cat_Dict, sources_Cat_Dict)
 
     # once the app is categorised
@@ -39,9 +40,9 @@ for filename in os.listdir(directory):
 
 # once every app is in the list- we can start making graphs
 # pieNumOfLeaks(apps)
-# histogramNumOfLeaks(apps)
+histogramNumOfLeaks(apps)
 # pieCategoriesSinks(apps)
-pieCategoriesSources(apps)
+# pieCategoriesSources(apps)
 # countSinks(apps, sinks_Cat_Dict)
 # countSources(apps, sources_Cat_Dict)
 

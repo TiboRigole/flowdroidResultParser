@@ -20,7 +20,8 @@ sourcesandsinks = "/home/tibo/flowdroid/sourcesandsinks.txt"
 # directory = "/home/tibo/Documents/appsFromGetJar"
 # directory = "/home/tibo/Documents/appsFromSlideMe"
 # directory = "/home/tibo/Documents/appsFromNothing"
-directory = "/home/tibo/Documents/appsFromFDroid"
+# directory = "/home/tibo/Documents/appsFromFDroid"
+directory =  "/media/tibo/TIBORIGOLE/testNumofLeak"
 
 # if you want to keep the console printing
 # sys.stdout = open(directory+'/logging','w')
@@ -53,8 +54,8 @@ for filename in os.listdir(directory):
     print("")
     print("new file started: "+filename)
     # pad naar app, outputfile setten
-    app_path = directory + "/" + filename
-    outputXml_path = outputsPath + "/" + filename +"_output.xml"
+    app_path = directory + '/"' + filename+'"'
+    outputXml_path = outputsPath + '/"' + filename +'_output.xml"'
 
 
     # commandos opstellen
