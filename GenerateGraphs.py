@@ -28,3 +28,5 @@ for filename in os.listdir(analyse_results_dir):
     this_app.set_categories(sinks_cat_dict, sources_cat_dict)
 
     apps.append(this_app)
+
+# graph generating

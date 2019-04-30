@@ -35,10 +35,28 @@ class App:
 
                 self.leaks.append(leak)
 
+
             # die extra values derin meepakken
+            for pe in root.iter('performanceData'):
+
+                if pe.attrib['Name'] == 'SourceCount':
+                    self.num_of_discovered_sources = pe.attrib['Value']
+
+                if pe.attrib['Name'] == 'SinkCount':
+                    self.num_of_discovered_sinks = pe.attrib['Value']
+
 
         except ET.ParseError:
             print("fout bij inladen van de xml")
             self.num_of_leaks = -1
 
+
+
     def set_categories(self, sinks_dict, sources_dict):
+
+        # setting source categories
+        for leak in self.leaks:
+            leak.calculate_categories(sinks_dict, sources_dict)
+
+
+

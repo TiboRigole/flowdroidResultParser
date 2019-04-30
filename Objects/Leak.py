@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 from Objects.Sink import Sink
 from Objects.Source import Source
 
-
 class Leak:
 
     # attributes
@@ -37,4 +36,36 @@ class Leak:
         self.sink_category = None
         self.sources_categories = []
 
+    def calculate_categories(self, sinks_dict, sources_dict):
 
+        # sink categorie
+        self.sink_category = calculate_sink_cat(self.sink, sinks_dict)
+
+        # sources categories
+        for source in self.sources:
+            category = calculate_source_cat(source, sources_dict)
+            self.sources_categories.append(category)
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+def calculate_sink_cat(sink, sinksDict):
+
+    for key in sinksDict:
+        if(sink.equals(key)):
+            #return its category
+            return sinksDict[key]
+
+    print("probleem in Leak::calculateSinkCat : sink not found in dict")
+    return None
+
+
+def calculate_source_cat(source, sourcesDict):
+
+    for key in sourcesDict:
+        if(source.equals(key)):
+            return sourcesDict[key]
+
+    print("probleem in Leak::calcultaeSourceCat : source not found in dict")
+    return None

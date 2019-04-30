@@ -17,8 +17,8 @@ class Source:
 
     def equals(self, sourceFromDict):
 
-        if(self.method_name == sourceFromDict.methodName and self.return_type == sourceFromDict.returnType):
+        if (self.method_name == sourceFromDict.method_name and self.return_type == sourceFromDict.return_type):
             return True
-            # todo probleem : mag k hier laten van te vergelijken op classType ?
+            # probleem : mag k hier laten van te vergelijken op classType ?
         else:
             return False
