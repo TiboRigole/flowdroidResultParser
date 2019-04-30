@@ -8,17 +8,17 @@ class Source:
 
         pieces = relevant_piece.split(" ")
 
-        self.classType = pieces[0][:-1]
-        self.returnType = pieces[1]
-        self.methodName = pieces[2]
+        self.class_type = pieces[0][:-1]
+        self.return_type = pieces[1]
+        self.method_name = pieces[2]
 
     def __str__(self):
-        return (self.classType +" "+ self.returnType +" " + self.methodName)
+        return (self.class_type + " " + self.return_type + " " + self.method_name)
 
     def equals(self, sourceFromDict):
 
-        if(self.methodName == sourceFromDict.methodName and self.returnType == sourceFromDict.returnType):
+        if(self.method_name == sourceFromDict.methodName and self.return_type == sourceFromDict.returnType):
             return True
-            # probleem : mag k hier laten van te vergelijken op classType ?
+            # todo probleem : mag k hier laten van te vergelijken op classType ?
         else:
             return False

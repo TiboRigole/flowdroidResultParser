@@ -1,50 +1,44 @@
 import xml.etree.ElementTree as ET
+
 from Objects.Leak import Leak
+
 
 class App:
 
+    # attributes
+    #
+    # name = name of the app
+    #
+    #
+    #
+
     def __init__(self, filename, path_to_file):
+
         self.name = filename
         self.leaks = []
-        self.num_of_leaks = 0 # = aantal Results in de xml
-        self.sourceCount = 0
-        self.sinkCount = 0
+        self.num_of_leaks = 0
+        self.source_count = 0
+        self.sink_count = 0
+
+        # aantal gevonden, niet aantal dat leidt tot leaks
+        self.num_of_discovered_sources = 0
+        self.num_of_discovered_sinks = 0
 
         try:
             root = ET.parse(path_to_file).getroot()
 
-            print(root.tag)
-            for child in root:
-                print(child.tag)
-
-
             for result in root.iter('Result'):
-
-                sink = result.find('Sink')
-                sources = result.find('Sources')
-
-                # make leak with sink and sources
-                leak = Leak(sink, sources)
-
-                # add leak to leaklist from this app
-                self.leaks.append(leak)
 
                 self.num_of_leaks += 1
 
-            print('test')
+                leak = Leak(result)
+
+                self.leaks.append(leak)
+
+            # die extra values derin meepakken
+
         except ET.ParseError:
-            print("app had no entry points")
+            print("fout bij inladen van de xml")
             self.num_of_leaks = -1
 
-
-
-    def setCategories(self, sinksDict, sourcesDict):
-        for leak in self.leaks:
-            leak.calculateCategories(sinksDict, sourcesDict)
-            # print("klaar met een leak")
-
-    def getNumOfLeaks(self):
-        return self.num_of_leaks
-
-    def getLeaks(self):
-        return self.leaks
+    def set_categories(self, sinks_dict, sources_dict):

@@ -1,18 +1,23 @@
 class Category:
 
+    # attributes:
+    # -> main_tag = hoofdcategorie
+
     def __init__(self, line):
 
         lineSplitted = line[12:-1].split(" - ")
 
-        self.mainTag = lineSplitted[0]
+        self.main_tag = lineSplitted[0]
 
-        if(len(lineSplitted) == 2):
-            self.subTag = lineSplitted[1]
+        if (len(lineSplitted) == 2):
+            self.sub_tag = lineSplitted[1]
         else:
-            self.subTag = None
+            self.sub_tag = None
+
+
 
     def __str__(self):
-        if( self.subTag is None):
-            return self.mainTag
+        if (self.sub_tag is None):
+            return self.main_tag
         else:
-            return self.mainTag +" - " + self.subTag
+            return self.main_tag + " - " + self.sub_tag
