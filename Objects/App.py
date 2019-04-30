@@ -59,4 +59,5 @@ class App:
             leak.calculate_categories(sinks_dict, sources_dict)
 
 
-
+    def get_num_of_leaks(self):
+        return self.num_of_leaks
