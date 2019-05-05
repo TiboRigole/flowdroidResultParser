@@ -2,15 +2,21 @@ import os
 
 from Objects.App import App
 from Utilities.ReadClassificationFiles import setupFromTxt
-from Graphs.Graphs import generateHistogram_fine
+from Graphs.Graphs import generateHistogram_fine, generateHistogram_percentages, generateSourceCategorisation_coarse, generateSinkCategorisation_coarse
 
 # path to dir we want to analyze
-#analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\FDroid"
-#analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\Huawei"
-analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\ApkPure"
-#analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\Tencent"
+analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\FDroid"
+appstore_name = "FDroid app store"
 
-appstore_name = "ApkPure app store"
+# analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\Huawei"
+# appstore_name = "Huawei app store"
+
+# analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\ApkPure"
+# appstore_name = "ApkPure app store"
+
+#analyse_results_dir = "C:\\Users\\tibo\\Desktop\\outputs\\Tencent"
+#appstore_name = "Tencent app store"
+
 
 # path to sources and sinks categorisation files
 sinks_cat_path = 'C:\\Users\\tibo\Documents\\school\\Masterproef\\flowdroidResultParser\\ClassificationFiles\\sinksCategorized.txt'
@@ -35,4 +41,14 @@ for filename in os.listdir(analyse_results_dir):
 
     apps.append(this_app)
 
-generateHistogram_fine(apps, appstore_name)
+
+# histogram maken, elke hoeveelheid leaks wordt geplot
+# generateHistogram_fine(apps, appstore_name)
+# generateHistogram_percentages(apps, appstore_name)
+
+
+# piechart van de sources maken, om te zien welke data de meeste leaks proberen te lekken
+# hier kunnen we weer fine grained gaan en coarse grained gaan
+# categorien zijn opgedeeld in hoofdcategoriën en subcategoriën
+#generateSourceCategorisation_coarse(apps, appstore_name, sources_cat_dict)
+generateSinkCategorisation_coarse(apps, appstore_name, sinks_cat_dict)

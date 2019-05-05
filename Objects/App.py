@@ -61,3 +61,6 @@ class App:
 
     def get_num_of_leaks(self):
         return self.num_of_leaks
+
+    def get_leaks(self):
+        return self.leaks

@@ -69,3 +69,6 @@ def calculate_source_cat(source, sourcesDict):
 
     print("probleem in Leak::calcultaeSourceCat : source not found in dict")
     return None
+
+def get_sources_categories(self):
+    return self.sources_categories
